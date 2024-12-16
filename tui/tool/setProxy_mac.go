@@ -1,7 +1,7 @@
 //go:build darwin
 // +build darwin
 
-package tui
+package tool
 
 import (
 	"log"

@@ -1,10 +1,12 @@
-package tui
+package client
 
 import (
 	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego/httplib"
 	"github.com/kingparks/cursor-vip/auth/sign"
+	"github.com/kingparks/cursor-vip/tui/params"
+	"github.com/kingparks/cursor-vip/tui/tool"
 	"github.com/tidwall/gjson"
 	"net/http"
 	"net/url"
@@ -13,6 +15,8 @@ import (
 	"runtime"
 	"time"
 )
+
+var Cli Client
 
 type Client struct {
 	Hosts []string // 服务器地址s
@@ -27,19 +31,19 @@ func (c *Client) SetProxy(lang string) {
 		proxy = func(request *http.Request) (*url.URL, error) {
 			return url.Parse(os.Getenv("http_proxy"))
 		}
-		proxyText = os.Getenv("http_proxy") + " " + Trr.Tr("经由") + " http_proxy " + Trr.Tr("代理访问")
+		proxyText = os.Getenv("http_proxy") + " " + params.Trr.Tr("经由") + " http_proxy " + params.Trr.Tr("代理访问")
 	}
 	if os.Getenv("https_proxy") != "" {
 		proxy = func(request *http.Request) (*url.URL, error) {
 			return url.Parse(os.Getenv("https_proxy"))
 		}
-		proxyText = os.Getenv("https_proxy") + " " + Trr.Tr("经由") + " https_proxy " + Trr.Tr("代理访问")
+		proxyText = os.Getenv("https_proxy") + " " + params.Trr.Tr("经由") + " https_proxy " + params.Trr.Tr("代理访问")
 	}
 	if os.Getenv("all_proxy") != "" {
 		proxy = func(request *http.Request) (*url.URL, error) {
 			return url.Parse(os.Getenv("all_proxy"))
 		}
-		proxyText = os.Getenv("all_proxy") + " " + Trr.Tr("经由") + " all_proxy " + Trr.Tr("代理访问")
+		proxyText = os.Getenv("all_proxy") + " " + params.Trr.Tr("经由") + " all_proxy " + params.Trr.Tr("代理访问")
 	}
 	httplib.SetDefaultSetting(httplib.BeegoHTTPSettings{
 		Proxy:            proxy,
@@ -48,10 +52,10 @@ func (c *Client) SetProxy(lang string) {
 		Gzip:             true,
 		DumpBody:         true,
 		UserAgent: fmt.Sprintf(`{"lang":"%s","GOOS":"%s","ARCH":"%s","version":%d,"deviceID":"%s","machineID":"%s","sign":"%s"}`,
-			lang, runtime.GOOS, runtime.GOARCH, version, deviceID, machineID, sign.Sign(deviceID)),
+			lang, runtime.GOOS, runtime.GOARCH, params.Version, params.DeviceID, params.MachineID, sign.Sign(params.DeviceID)),
 	})
 	if len(proxyText) > 0 {
-		fmt.Printf(yellow, proxyText)
+		_, _ = fmt.Fprintf(params.ColorOut, params.Yellow, proxyText)
 	}
 }
 
@@ -99,8 +103,8 @@ func (c *Client) PayCheck(orderID, deviceID string) (isPay bool) {
 func (c *Client) GetMyInfo(deviceID string) (sCount, sPayCount, isPay, ticket, exp string) {
 	body, _ := json.Marshal(map[string]string{
 		"device":    deviceID,
-		"deviceMac": getMac_241018(),
-		"sDevice":   getPromotion(),
+		"deviceMac": tool.GetMac_241018(),
+		"sDevice":   params.Promotion,
 	})
 	dUser, _ := user.Current()
 	deviceName := ""
@@ -135,7 +139,7 @@ func (c *Client) CheckVersion(version string) (upUrl string) {
 }
 
 func (c *Client) GetLic() (isOk bool, result string) {
-	req := httplib.Get(c.host+"/getLic").Header("sign", sign.Sign(deviceID))
+	req := httplib.Get(c.host+"/getLic").Header("sign", sign.Sign(params.DeviceID))
 	res, err := req.String()
 	if err != nil {
 		isOk = false

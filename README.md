@@ -37,28 +37,27 @@ cursor-vip
 # double click cursor-vip_xx_xxx.exe
 ```
 
-<!--
-<details>
-<summary>Precautions for using strong proxy mode</summary>
+[Additional settings for proxy mode](docs/proxyMode.md)
 
-Strong proxy mode For the first time after starting, you need to install the trusted certificate. The certificate will be automatically generated after the first start command, and the path is `~/.cursor-vip/cursor-vip-ca-cert.pem`.
-* MacOS: Execute `open ~/.cursor-vip` in the terminal, double-click the cursor-vip-ca-cert.pem file, pop up the "Keychain Access" window, select the certificate, search for cursor-vip, double-click cursor-vip, expand trust, select "Always trust when using this certificate", close the pop-up window, enter the password to confirm, and the certificate is installed.
-* Windows: Search for cer in windows, select the `certmgr.msc` function, expand `Trusted Root Certification Authorities`, select `Certificates`, right-click `All Tasks`, select `Import...`, next, enter the `%homepath%\.cursor-vip\cursor-vip-ca-cert.pem` file, next all the way, complete; reopen the browser.
-* Linux: //TODO linux currently only supports minimalist mode
-
-</details>
--->
-
-Enjoy cursor-vip:
+**Enjoy cursor-vip:
 * Open the CURSOR code editor, click the settings icon in the upper right corner, and you can see that you are already a VIP account.
 * Enjoy code prompts and chat functions.
 
 ---
+
 ### Promotion Guide
-By promoting cursor-vip, you can automatically get up to an unlimited amount of free usage time, and the other party can also get 15 days of free (self-registration for 7 days), you can refer to the following methods:
-1. After cloning this repository, replace `githubReadme` in the `README` with your DeviceID.
-2. Post articles on platforms such as SegmentFault/Stack Overflow/GitHub Discussions/Reddit/Dev.to/Hacker News/DZone/V2EX/Quora/WeChat Official Account/Zhihu/Bilibili/CSDN/, promoting the use of cursor pro in this way, and attach your own promotional installation command or cloned github address.
-3. Comment under cursor related articles or videos, for example: "Cooperate with Github's [Your Github Name]/cursor-vip for low-priced or freelancing Pro"
+[Promotion Guide](docs/promotion.md)
+
+---
+
+### How to use custom models
+[Gemini 2.0](docs/models-gemini-2.0.md)
+
+---
+
+### Q & A
+[Q & A](docs/Q&A.md)
+
 ---
 ### Star History
 <a href="https://star-history.com/#kingparks/cursor-vip&Date">

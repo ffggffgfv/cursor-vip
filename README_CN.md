@@ -37,27 +37,26 @@ cursor-vip
 # 双击 cursor-vip_xx_xxx.exe
 ```
 
-<!--
-<details>
-  <summary>使用强劲代理模式注意事项</summary>
-
-如果选择强劲代理模式首次启动后需安装信任证书，证书会在首次启动命令后自动生成，路径为 `~/.cursor-vip/cursor-vip-ca-cert.pem`。
-* MacOS: 在终端执行 `open ~/.cursor-vip`，双击 cursor-vip-ca-cert.pem 文件，选择`登录`，弹出“钥匙串访问”窗口，选择证书，搜索 cursor-vip，双击 cursor-vip，展开信任，选择使用此证书时“始终信任”，关闭弹窗，输入密码确认，证书安装完成。
-* Windows: 在windows搜索输入 `管理用户证书`,选择`管理用户证书`功能，展开`受信任的根证书颁发机构`，选中`证书`，右键`所有任务`，选择`导入`，下一步，输入`%homepath%\.cursor-vip\cursor-vip-ca-cert.pem`文件，一直下一步，完成; 重新打开浏览器。
-* Linux: //TODO linux 目前只支持极简模式
-
-</details>
--->
+[代理模式的额外设置](docs/proxyMode_CN.md)
 
 享受 cursor-vip：
 * 打开 CURSOR 代码编辑器，点击右上角设置图标，可看到已是VIP账号。
 * 尽情享受代码提示和聊天功能。
 ---
+
 ### 推广指南
-通过推广 cursor-vip，您可以自动获得至多无限多的免费使用时间,对方也可以获取15天的免费试用(自主注册为7天), 可参考以下方式：
-1. clone 该仓库后，替换 `README` 中的 `githubReadme` 为您的设备码。
-2. 在公众号/知乎/哔哩哔哩/CSDN/SegmentFault/Stack Overflow/GitHub Discussions/Reddit/Dev.to/Hacker News/DZone/V2EX/Quora 等平台发布文章，安利此种使用 cursor pro 的方式，附加上自己的推广安装命令或 clone 后的 github 地址。
-3. 在相关 cursor 文章或视频下面评论 例如："可以配合 github 的 [你的github名字]/cursor-vip 低价或白嫖 Pro"
+[推广指南](docs/promotion_CN.md)
+
+---
+
+### 如何使用自定义模型
+[Gemini 2.0](docs/models-gemini-2.0_CN.md)
+
+---
+
+### 提问与回答
+[提问与回答](docs/Q&A_CN.md)
+
 ---
 ### Star History
 <a href="https://star-history.com/#kingparks/cursor-vip&Date">

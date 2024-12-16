@@ -6,7 +6,9 @@ require (
 	github.com/astaxie/beego v1.12.3
 	github.com/atotto/clipboard v0.1.4
 	github.com/denisbrodbeck/machineid v1.0.1
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/edluis37/shortuuid/v4 v4.0.0-20221015205646-3117f62f0327
+	github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-pay/gopay v1.5.103
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da
@@ -14,6 +16,7 @@ require (
 	github.com/kingparks/goutil v1.0.0
 	github.com/logoove/sqlite v1.16.1
 	github.com/lqqyt2423/go-mitmproxy v1.8.5
+	github.com/mattn/go-colorable v0.1.13
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/tidwall/gjson v1.17.1

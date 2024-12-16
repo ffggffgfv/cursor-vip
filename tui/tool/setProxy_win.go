@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package tui
+package tool
 
 import (
 	"golang.org/x/sys/windows/registry"
